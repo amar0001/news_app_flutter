@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:news_app_flutter/view/dashboard.dart';
+
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key, required this.title});
