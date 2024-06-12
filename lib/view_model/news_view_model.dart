@@ -30,7 +30,7 @@ class NewsViewModel with ChangeNotifier {
       _apiResponse = ApiResponse.completed(newsList);
     } catch (e) {
       _apiResponse = ApiResponse.error(e.toString());
-      print(e);
+      debugPrint(e.toString());
     }
     notifyListeners();
   }

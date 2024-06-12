@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import 'base_service.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -11,7 +13,8 @@ class NewsService extends BaseService {
   Future getResponse(String url) async {
     dynamic responseJson;
     try {
-      final response = await http.get(Uri.parse(newsBaseUrl + url));
+      final response = await http.get(Uri.parse('https://newsapi.org/v2/everything?q=apple&from=2024-06-11&to=2024-06-11&sortBy=popularity&apiKey=16d110fa86e24e7e9d1a9960c0ff4048'));
+       debugPrint(">>"+(newsBaseUrl + url));
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet Connection');
@@ -33,8 +36,7 @@ class NewsService extends BaseService {
       case 500:
       default:
         throw FetchDataException(
-            'Error occured while communication with server' +
-                ' with status code : ${response.statusCode}');
+            'Error occured while communication with server' ' with status code : ${response.statusCode}');
     }
   }
 }
